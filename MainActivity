@@ -42,6 +42,7 @@ public class TTTConsoleNonOO2P {
          } else if (currentState == NOUGHT_WON) {
             System.out.println("'O' won! Bye!");
          } else if (currentState == DRAW) {
+            System.out.println("It's a Draw! Bye!");
          }
          // Switch player
          currentPlayer = (currentPlayer == CROSS) ? NOUGHT : CROSS;
@@ -107,7 +108,7 @@ public class TTTConsoleNonOO2P {
       return true;  // no empty cell, it's a draw
    }
  
-   Return true if the player with "theSeed" has won after placing at
+   /** Return true if the player with "theSeed" has won after placing at
        (currentRow, currentCol) */
    public static boolean hasWon(int theSeed, int currentRow, int currentCol) {
       return (board[currentRow][0] == theSeed         // 3-in-the-row
@@ -135,5 +136,20 @@ public class TTTConsoleNonOO2P {
                System.out.print("|");   // print vertical partition
             }
          }
+         System.out.println();
+         if (row != ROWS - 1) {
+            System.out.println("-----------"); // print horizontal partition
+         }
+      }
+      System.out.println();
+   }
+ 
+   /** Print a cell with the specified "content" */
+   public static void printCell(int content) {
+      switch (content) {
+         case EMPTY:  System.out.print("   "); break;
+         case NOUGHT: System.out.print(" O "); break;
+         case CROSS:  System.out.print(" X "); break;
+      }
    }
 }
